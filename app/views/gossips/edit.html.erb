@@ -1,0 +1,19 @@
+
+<div class="container">
+  <h2>Modifie le gossip:<br></h2>
+  <%= form_for @gossip do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>:<br>
+    <%= f.text_field :title, placeholder: 'Titre', class: 'form-control' %><br>
+  </div>
+  <div class="form-group">
+    <%= f.label :content %>:<br>
+    <%= f.text_area :content, placeholder: 'User#X est à voile ou à vapeur', class: 'form-control' %><br>
+  </div>
+  <div class="form-group">
+    <%= f.label :anonymous_gossiper %>:<br>
+    <%= f.text_field :anonymous_gossiper, placeholder: 'Anonymous?', class: 'form-control' %><br>
+  </div>
+  <%= f.submit "Modifier l'article", class: "btn btn-primary"%>
+  <% end %>
+</div>
