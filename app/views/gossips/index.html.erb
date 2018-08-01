@@ -1,0 +1,26 @@
+<h2> Liste des gossips </h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <td>ID</td>
+      <td>Titre</td>
+      <td>Contenu</td>
+      <td>anonymous_gossiper</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @gossips.each do |gossip| %>
+    <tr>
+      <td><%= gossip.id %></td>
+      <td><%= gossip.title %></td>
+      <td><%= gossip.content %></td>
+      <td><%= gossip.anonymous_gossiper %></td>
+      <td><%= link_to 'Voir le gossip', gossip_path(gossip.id)%></td>
+      <td><%= link_to 'Modifier', edit_gossip_path(gossip.id)%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Créer un nouveau gossip', new_gossip_path, class:'btn btn-success' %>

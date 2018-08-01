@@ -1,9 +1,18 @@
 Gossip n°<%= @gossip.id %> :
 
-Titre: <%= @gossip.title %>
-Contenu: <%= @gossip.content %>
+Titre: <%= @gossip.title %><br>
+Contenu: <%= @gossip.content %><br>
+Gossiper: <%= @gossip.anonymous_gossiper %><br>
+
+<% @comments.each do |c| %>
+  Commentaire: de <%= c.anonymous_commentor %> : <%= c.content %> n°<%= c.id %>
+  <%= link_to 'Supprimer', delete_comment_path(id: c.id, gossip_id: @gossip), method: :delete %><br>
+<% end %>
 
 
-<a href='<%= edit_gossip_path %>'><button>Modifier l'article</button></a>
+<%= link_to 'Lache un com', comment_path(@gossip.id) %><br>
 
+<%= link_to 'Modifier l\'article', edit_gossip_path %><br>
+
+<%= link_to 'Clique pour détruire', @gossip, method: :delete %><br>
 <!-- <%= button_to "Edit", edit_gossip_path %> -->
